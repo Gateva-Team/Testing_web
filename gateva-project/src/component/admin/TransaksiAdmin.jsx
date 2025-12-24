@@ -37,7 +37,7 @@ export default function TransaksiAdmin() {
   ];
 
   return (
-    <div className="p-8 min-h-screen bg-gradient-to-br from-[#0a0a12] to-[#1a1a2e] text-white">
+    <div className="p-8 min-h-screen bg-linear-to-br from-[#0a0a12] to-[#1a1a2e] text-white">
       <h1 className="text-3xl font-bold mb-6">Transaksi</h1>
 
       <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/20 overflow-x-auto">

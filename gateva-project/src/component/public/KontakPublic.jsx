@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function KontakPublic() {
+  const formRef = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_2jegxni",      // SERVICE ID
+        "template_e0i3gh8",     // TEMPLATE ID
+        formRef.current,
+        "dLa3Te8qFDNagZdfp"     // KEY
+      )
+      .then(() => {
+        alert("Pesan berhasil dikirim ✅");
+        formRef.current.reset();
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Gagal mengirim pesan ❌");
+      });
+  };
+
   return (
     <section className="min-h-screen bg-black text-white px-6 py-28">
       <div className="max-w-7xl mx-auto">
-        {/* ================= HEADER ================= */}
+        {/* HEADER */}
         <div className="max-w-3xl mb-20">
           <p className="text-[#39ff14] tracking-widest text-sm mb-3 uppercase">
             Kontak Gateva
@@ -17,27 +40,25 @@ export default function KontakPublic() {
 
           <p className="mt-6 text-white/60 text-lg">
             Punya pertanyaan seputar event, kerja sama, atau ingin berkolaborasi
-            dengan Gateva? Jangan ragu untuk menghubungi kami melalui form atau
-            kontak di bawah ini.
+            dengan Gateva? Jangan ragu menghubungi kami.
           </p>
         </div>
 
-        {/* ================= CONTENT ================= */}
         <div className="grid lg:grid-cols-3 gap-12">
-          {/* ===== CONTACT INFO ===== */}
+          {/* INFO */}
           <div className="space-y-8">
             {[
               {
                 title: "Email",
-                value: "support@gateva.id",
+                value: "gatevaet@gmail.com",
+                link: "mailto:gatevaet@gmail.com",
                 desc: "Respon maksimal 1x24 jam",
-                link: "mailto:support@gateva.id",
               },
               {
                 title: "WhatsApp",
-                value: "+62 822-5347-7806 (Dama)",
-                desc: "Senin – Jumat, 09.00 – 17.00",
+                value: "+62 822-5347-7806",
                 link: "https://wa.me/6282253477806",
+                desc: "Senin – Jumat, 09.00 – 17.00",
               },
               {
                 title: "Alamat",
@@ -47,23 +68,21 @@ export default function KontakPublic() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-white/5 backdrop-blur-xl border border-white/10
-                           rounded-2xl p-6 hover:border-[#39ff14]/50
-                           transition-all duration-300"
+                className="bg-white/5 border border-white/10 rounded-2xl p-6"
               >
-                <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
+                <h3 className="text-lg font-semibold">{item.title}</h3>
 
                 {item.link ? (
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#39ff14] font-medium hover:underline"
+                    className="text-[#39ff14] hover:underline"
                   >
                     {item.value}
                   </a>
                 ) : (
-                  <p className="text-[#39ff14] font-medium">{item.value}</p>
+                  <p className="text-[#39ff14]">{item.value}</p>
                 )}
 
                 <p className="text-white/50 text-sm mt-2">{item.desc}</p>
@@ -71,60 +90,49 @@ export default function KontakPublic() {
             ))}
           </div>
 
-          {/* ===== FORM ===== */}
+          {/* FORM */}
           <div className="lg:col-span-2">
-            <div
-              className="bg-white/5 backdrop-blur-2xl border border-white/10
-                         rounded-3xl p-10 shadow-[0_0_60px_rgba(57,255,20,0.12)]"
-            >
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-10">
               <h2 className="text-2xl font-bold mb-8">Kirim Pesan</h2>
 
-              <form className="space-y-6">
+              <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <input
                     type="text"
+                    name="user_name"
                     placeholder="Nama Lengkap"
-                    className="w-full bg-black/40 border border-white/10
-                               rounded-xl px-5 py-4 text-white
-                               focus:outline-none focus:border-[#39ff14]
-                               transition"
+                    required
+                    className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4"
                   />
 
                   <input
                     type="email"
+                    name="user_email"
                     placeholder="Email"
-                    className="w-full bg-black/40 border border-white/10
-                               rounded-xl px-5 py-4 text-white
-                               focus:outline-none focus:border-[#39ff14]
-                               transition"
+                    required
+                    className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4"
                   />
                 </div>
 
                 <input
                   type="text"
+                  name="subject"
                   placeholder="Subjek"
-                  className="w-full bg-black/40 border border-white/10
-                             rounded-xl px-5 py-4 text-white
-                             focus:outline-none focus:border-[#39ff14]
-                             transition"
+                  required
+                  className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4"
                 />
 
                 <textarea
+                  name="message"
                   rows="5"
                   placeholder="Tulis pesan kamu di sini..."
-                  className="w-full bg-black/40 border border-white/10
-                             rounded-xl px-5 py-4 text-white
-                             focus:outline-none focus:border-[#39ff14]
-                             transition resize-none"
+                  required
+                  className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 resize-none"
                 />
 
                 <button
-                  type="button"
-                  className="w-full md:w-fit px-10 py-4 rounded-xl
-                             font-semibold text-black
-                             bg-[#39ff14]
-                             hover:brightness-110 hover:scale-[1.03]
-                             transition-all duration-300"
+                  type="submit"
+                  className="px-10 py-4 rounded-xl font-semibold text-black bg-[#39ff14] hover:brightness-110 transition"
                 >
                   Kirim Pesan
                 </button>
