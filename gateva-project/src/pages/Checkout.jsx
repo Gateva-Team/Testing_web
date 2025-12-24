@@ -56,7 +56,7 @@ Saya ingin membeli tiket event:
           <div className="p-8">
             <span
               className="inline-block mb-3 px-4 py-1 rounded-full text-xs font-semibold
-                             bg-[#39ff14]/15 text-[#39ff14]"
+                        bg-[#39ff14]/15 text-[#39ff14]"
             >
               {state.category}
             </span>
@@ -105,9 +105,9 @@ Saya ingin membeli tiket event:
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full px-5 py-4 rounded-xl bg-black/40
-                           border border-white/10
-                           focus:outline-none focus:border-[#39ff14]
-                           text-white"
+                          border border-white/10
+                          focus:outline-none focus:border-[#39ff14]
+                        text-white"
               />
             </div>
 
@@ -122,9 +122,9 @@ Saya ingin membeli tiket event:
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 className="w-full px-5 py-4 rounded-xl bg-black/40
-                           border border-white/10
-                           focus:outline-none focus:border-[#39ff14]
-                           text-white"
+                          border border-white/10
+                          focus:outline-none focus:border-[#39ff14]
+                        text-white"
               />
             </div>
 
@@ -133,10 +133,10 @@ Saya ingin membeli tiket event:
               <button
                 onClick={handleCheckout}
                 className="w-full py-4 rounded-xl font-semibold text-black
-                           bg-[#39ff14]
-                           hover:scale-[1.03]
-                           hover:shadow-[0_0_30px_rgba(57,255,20,0.9)]
-                           transition-all"
+                        bg-[#39ff14]
+                          hover:scale-[1.03]
+                          hover:shadow-[0_0_30px_rgba(57,255,20,0.9)]
+                          transition-all"
               >
                 💬 Checkout via WhatsApp
               </button>
@@ -144,7 +144,7 @@ Saya ingin membeli tiket event:
               <button
                 onClick={() => navigate(-1)}
                 className="w-full py-4 rounded-xl border border-white/20
-                           text-white/70 hover:bg-white/10 transition"
+                          text-white/70 hover:bg-white/10 transition"
               >
                 Kembali
               </button>
