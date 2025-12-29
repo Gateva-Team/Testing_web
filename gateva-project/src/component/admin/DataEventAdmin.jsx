@@ -41,17 +41,14 @@ export default function DataEventAdmin() {
 
   const [editId, setEditId] = useState(null);
 
-  // Handle input form
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Tambah / Update event
   const handleSubmit = () => {
     if (!form.name || !form.category || !form.date) return;
 
     if (editId) {
-      // UPDATE
       setEvents(
         events.map((event) =>
           event.id === editId ? { ...event, ...form } : event
@@ -59,23 +56,22 @@ export default function DataEventAdmin() {
       );
       setEditId(null);
     } else {
-      // CREATE
-      const newEvent = {
-        id: events.length + 1,
-        ...form,
-      };
-      setEvents([...events, newEvent]);
+      setEvents([
+        ...events,
+        {
+          id: events.length + 1,
+          ...form,
+        },
+      ]);
     }
 
     setForm({ name: "", category: "", date: "", status: "Aktif" });
   };
 
-  // Hapus event
   const handleDelete = (id) => {
     setEvents(events.filter((event) => event.id !== id));
   };
 
-  // Edit event
   const handleEdit = (event) => {
     setEditId(event.id);
     setForm({
@@ -90,7 +86,7 @@ export default function DataEventAdmin() {
     <div className="p-8 min-h-screen bg-gradient-to-br from-[#0a0a12] to-[#1a1a2e] text-white">
       <h1 className="text-3xl font-bold mb-6">Data Event (Admin)</h1>
 
-      {/* FORM TAMBAH / EDIT */}
+      {/* FORM */}
       <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 mb-8 border border-white/20">
         <h2 className="text-xl font-semibold mb-4">
           {editId ? "Edit Event" : "Tambah Event"}
@@ -103,31 +99,28 @@ export default function DataEventAdmin() {
             placeholder="Nama Event"
             value={form.name}
             onChange={handleChange}
-            className="p-2 rounded bg-black/40 border border-white/20 text-white"
+            className="p-2 rounded bg-black/40 border border-white/20"
           />
-
           <input
             type="text"
             name="category"
             placeholder="Kategori"
             value={form.category}
             onChange={handleChange}
-            className="p-2 rounded bg-black/40 border border-white/20 text-white"
+            className="p-2 rounded bg-black/40 border border-white/20"
           />
-
           <input
             type="date"
             name="date"
             value={form.date}
             onChange={handleChange}
-            className="p-2 rounded bg-black/40 border border-white/20 text-white"
+            className="p-2 rounded bg-black/40 border border-white/20"
           />
-
           <select
             name="status"
             value={form.status}
             onChange={handleChange}
-            className="p-2 rounded bg-black/40 border border-white/20 text-white"
+            className="p-2 rounded bg-black/40 border border-white/20"
           >
             <option>Aktif</option>
             <option>Pending</option>
@@ -137,7 +130,7 @@ export default function DataEventAdmin() {
         <div className="flex gap-4 mt-4">
           <button
             onClick={handleSubmit}
-            className="px-6 py-2 bg-green-500/20 text-green-400 rounded-lg hover:bg-green-500/30 transition"
+            className="px-6 py-2 bg-green-500/20 text-green-400 rounded-lg"
           >
             {editId ? "Update Event" : "+ Tambah Event"}
           </button>
@@ -153,7 +146,7 @@ export default function DataEventAdmin() {
                   status: "Aktif",
                 });
               }}
-              className="px-6 py-2 bg-gray-500/20 text-gray-300 rounded-lg hover:bg-gray-500/30 transition"
+              className="px-6 py-2 bg-gray-500/20 text-gray-300 rounded-lg"
             >
               Batal
             </button>
@@ -161,53 +154,30 @@ export default function DataEventAdmin() {
         </div>
       </div>
 
-      {/* TABLE EVENT */}
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/20 overflow-x-auto">
-        <table className="w-full text-left border-collapse">
+      {/* TABLE */}
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 overflow-x-auto">
+        <table className="w-full">
           <thead>
             <tr className="border-b border-white/20">
-              <th className="py-2 px-4 text-white/70">ID</th>
-              <th className="py-2 px-4 text-white/70">Event Name</th>
-              <th className="py-2 px-4 text-white/70">Category</th>
-              <th className="py-2 px-4 text-white/70">Date</th>
-              <th className="py-2 px-4 text-white/70">Status</th>
-              <th className="py-2 px-4 text-white/70">Action</th>
+              <th>ID</th>
+              <th>Event</th>
+              <th>Kategori</th>
+              <th>Tanggal</th>
+              <th>Status</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
             {events.map((event) => (
-              <tr
-                key={event.id}
-                className="border-b border-white/10 hover:bg-white/10 transition"
-              >
-                <td className="py-2 px-4">{event.id}</td>
-                <td className="py-2 px-4">{event.name}</td>
-                <td className="py-2 px-4">{event.category}</td>
-                <td className="py-2 px-4">{event.date}</td>
-                <td className="py-2 px-4">
-                  <span
-                    className={`px-2 py-1 rounded-full text-sm font-medium ${
-                      event.status === "Aktif"
-                        ? "bg-green-500/20 text-green-400"
-                        : "bg-yellow-500/20 text-yellow-400"
-                    }`}
-                  >
-                    {event.status}
-                  </span>
-                </td>
-                <td className="py-2 px-4 flex gap-2">
-                  <button
-                    onClick={() => handleEdit(event)}
-                    className="px-3 py-1 text-sm bg-blue-500/20 text-blue-400 rounded hover:bg-blue-500/30 transition"
-                  >
-                    ✏️ Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(event.id)}
-                    className="px-3 py-1 text-sm bg-red-500/20 text-red-400 rounded hover:bg-red-500/30 transition"
-                  >
-                    Hapus
-                  </button>
+              <tr key={event.id} className="border-b border-white/10">
+                <td>{event.id}</td>
+                <td>{event.name}</td>
+                <td>{event.category}</td>
+                <td>{event.date}</td>
+                <td>{event.status}</td>
+                <td className="flex gap-2">
+                  <button onClick={() => handleEdit(event)}>✏️</button>
+                  <button onClick={() => handleDelete(event.id)}>🗑</button>
                 </td>
               </tr>
             ))}
