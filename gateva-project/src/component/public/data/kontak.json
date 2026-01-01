@@ -1,0 +1,32 @@
+{
+  "header": {
+    "subtitle": "Kontak Gateva",
+    "title": "Hubungi Tim Kami",
+    "highlight": "Kami Siap Membantu",
+    "description": "Punya pertanyaan seputar event, kerja sama, atau ingin berkolaborasi dengan Gateva? Jangan ragu menghubungi kami."
+  },
+  "contacts": [
+    {
+      "title": "Email",
+      "value": "gatevaet@gmail.com",
+      "link": "mailto:gatevaet@gmail.com",
+      "desc": "Respon maksimal 1x24 jam"
+    },
+    {
+      "title": "WhatsApp",
+      "value": "+62 822-5347-7806",
+      "link": "https://wa.me/6282253477806",
+      "desc": "Senin – Jumat, 09.00 – 17.00"
+    },
+    {
+      "title": "Alamat",
+      "value": "Yogyakarta, Indonesia",
+      "desc": "Kantor pusat Gateva"
+    }
+  ],
+  "form": {
+    "title": "Kirim Pesan",
+    "note": "* Data kamu aman dan tidak akan dibagikan ke pihak lain.",
+    "button": "Kirim Pesan"
+  }
+}

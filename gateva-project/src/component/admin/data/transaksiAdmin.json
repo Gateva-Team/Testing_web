@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "user": "Dama P.",
+    "event": "Konser Jazz",
+    "amount": 200000,
+    "status": "Selesai",
+    "date": "2025-12-20"
+  },
+  {
+    "id": 2,
+    "user": "Rizky A.",
+    "event": "Seminar AI",
+    "amount": 150000,
+    "status": "Pending",
+    "date": "2025-12-21"
+  },
+  {
+    "id": 3,
+    "user": "Siti N.",
+    "event": "Workshop UI/UX",
+    "amount": 100000,
+    "status": "Selesai",
+    "date": "2025-12-22"
+  },
+  {
+    "id": 4,
+    "user": "Budi K.",
+    "event": "Lomba Coding",
+    "amount": 50000,
+    "status": "Selesai",
+    "date": "2025-12-23"
+  }
+]

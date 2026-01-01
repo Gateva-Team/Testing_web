@@ -1,66 +1,76 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
+import musicEvents from "../../data/eventMusicPublic.json";
 
-export default function EventDetailPublic() {
-  const { state } = useLocation();
+export default function EventDetailMusic() {
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const { id } = useParams();
 
-  if (!state) {
+  // 🔎 ambil dari state ATAU fallback ke JSON
+  const event =
+    state || musicEvents.find((item) => String(item.id) === id);
+
+  if (!event) {
     return (
-      <div className="min-h-screen flex items-center justify-center text-white">
-        Event tidak ditemukan
-      </div>
+      <section className="min-h-screen bg-black text-white flex flex-col items-center justify-center">
+        <p className="mb-6 text-white/60">Event musik tidak ditemukan</p>
+        <button
+          onClick={() => navigate("/event/musik")}
+          className="px-6 py-3 rounded-xl bg-[#39ff14] text-black font-semibold"
+        >
+          Kembali ke Event Musik
+        </button>
+      </section>
     );
   }
 
   return (
-    <section className="min-h-screen bg-[#0f0f1a] text-white">
+    <section className="min-h-screen bg-[#0f0f1a] text-white pt-20">
       {/* ================= HERO ================= */}
-      <div className="relative h-[70vh] overflow-hidden">
+      <div className="relative h-[65vh] overflow-hidden">
         <img
-          src={state.image}
-          alt={state.title}
-          className="absolute inset-0 w-full h-full object-cover scale-105"
+          src={event.image}
+          alt={event.title}
+          className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f1a] via-black/60 to-black/30" />
 
-        {/* Hero Content */}
         <div className="relative z-10 h-full flex items-end">
-          <div className="max-w-6xl mx-auto px-6 pb-16">
-            <span
-              className="inline-block px-4 py-1 mb-4 rounded-full text-sm font-semibold
-                             bg-[#39ff14]/15 text-[#39ff14]"
-            >
-              {state.category}
+          <div className="max-w-6xl mx-auto px-6 pb-14">
+            <span className="inline-block px-4 py-1 mb-4 rounded-full text-sm font-semibold bg-[#39ff14]/15 text-[#39ff14]">
+              {event.category}
             </span>
 
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-              {state.title}
+              {event.title}
             </h1>
 
             <div className="flex flex-wrap gap-6 mt-6 text-white/70">
-              <p>📍 {state.location}</p>
-              <p>📅 {state.date}</p>
+              <p>📍 {event.location}</p>
+              <p>📅 {event.date}</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* ================= CONTENT ================= */}
-      <div className="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-3 gap-12">
-        {/* LEFT CONTENT */}
+      <div className="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-3 gap-10">
+        {/* LEFT */}
         <div className="lg:col-span-2 space-y-12">
-          {/* Description */}
           <div>
             <h2 className="text-2xl font-bold mb-4">Tentang Event</h2>
-            <p className="text-white/70 leading-relaxed text-lg">
-              {state.description}
+            <p className="text-white/70 leading-relaxed">
+              {event.description}
             </p>
           </div>
 
-          {/* Highlights */}
           <div className="grid sm:grid-cols-3 gap-6">
             {[
               { title: "Experience", desc: "Visual & sound system premium" },
@@ -79,38 +89,32 @@ export default function EventDetailPublic() {
           </div>
         </div>
 
-        {/* ================= TICKET CARD ================= */}
+        {/* ================= TICKET ================= */}
         <div className="sticky top-28 h-fit">
-          <div
-            className="bg-white/10 backdrop-blur-xl border border-white/15
-                       rounded-3xl p-8 shadow-[0_0_60px_rgba(57,255,20,0.12)]"
-          >
-            <h3 className="text-xl font-bold mb-2">Harga Tiket</h3>
+          <div className="bg-white/10 backdrop-blur-xl border border-white/15 rounded-3xl p-8">
+            <h3 className="text-lg font-bold mb-2">Harga Tiket</h3>
+
             <p className="text-4xl font-extrabold text-[#39ff14] mb-6">
-              {state.price}
+              {event.price}
             </p>
 
-            <div className="space-y-4">
-              <Link
-                to="/checkout"
-                state={state}
-                className="block w-full py-4 rounded-xl font-semibold text-center
-             bg-[#39ff14] text-black
-             hover:brightness-110 hover:scale-[1.02]
-             transition-all duration-300"
-              >
-                🎟️ Beli Tiket
-              </Link>
+            <Link
+              to="/checkout"
+              state={event}
+              className="block w-full py-4 rounded-xl font-semibold text-center
+                         bg-[#39ff14] text-black hover:brightness-110 transition"
+            >
+              🎟️ Beli Tiket
+            </Link>
 
-              <button
-                onClick={() => navigate(-1)}
-                className="w-full py-4 rounded-xl border border-white/20
-                           text-white/70 hover:bg-white/10
-                           transition"
-              >
-                Cancel
-              </button>
-            </div>
+            <button
+              onClick={() => navigate(-1)}
+              className="w-full py-4 mt-3 rounded-xl
+                         border border-white/20 text-white/70
+                         hover:bg-white/10 transition"
+            >
+              Kembali
+            </button>
 
             <p className="text-xs text-white/40 mt-6 text-center">
               * Tiket tidak dapat dikembalikan setelah pembelian

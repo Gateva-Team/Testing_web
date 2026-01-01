@@ -1,38 +1,8 @@
 import React from "react";
+import dashboardData from "./data/dashboardAdmin.json";
 
-export default function AdminDashboard() {
-  const stats = [
-    { title: "Total Event", value: 128 },
-    { title: "Total Transaksi", value: 560 },
-    { title: "Total User", value: 1020 },
-  ];
-
-  const recentEvents = [
-    { id: 1, name: "Konser Musik Jazz", date: "2025-12-20", status: "Aktif" },
-    { id: 2, name: "Seminar AI", date: "2025-12-22", status: "Aktif" },
-    {
-      id: 3,
-      name: "Workshop Design UI/UX",
-      date: "2025-12-25",
-      status: "Pending",
-    },
-    { id: 4, name: "Lomba Coding", date: "2025-12-28", status: "Aktif" },
-  ];
-
-  const transaksiBulanan = [
-    { bulan: "Jan", value: 20 },
-    { bulan: "Feb", value: 32 },
-    { bulan: "Mar", value: 24 },
-    { bulan: "Apr", value: 28 },
-    { bulan: "Mei", value: 16 },
-    { bulan: "Jun", value: 36 },
-    { bulan: "Jul", value: 22 },
-    { bulan: "Agu", value: 30 },
-    { bulan: "Sep", value: 26 },
-    { bulan: "Okt", value: 34 },
-    { bulan: "Nov", value: 18 },
-    { bulan: "Des", value: 40 },
-  ];
+export default function DashboardAdmin() {
+  const { stats, recentEvents, transaksiBulanan } = dashboardData;
 
   return (
     <div className="min-h-screen p-8 bg-black text-white font-sans">
@@ -94,13 +64,9 @@ export default function AdminDashboard() {
             <thead>
               <tr className="border-b border-[#39ff14]/30">
                 <th className="py-3 px-4 text-left text-white/60">ID</th>
-                <th className="py-3 px-4 text-left text-white/60">
-                  Event Name
-                </th>
+                <th className="py-3 px-4 text-left text-white/60">Event Name</th>
                 <th className="py-3 px-4 text-left text-white/60">Date</th>
-                <th className="py-3 px-4 text-left text-white/60">
-                  Status
-                </th>
+                <th className="py-3 px-4 text-left text-white/60">Status</th>
               </tr>
             </thead>
             <tbody>

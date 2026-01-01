@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import kontakData from "./data/kontak.json";
 
 export default function KontakPublic() {
   const formRef = useRef();
+  const { header, contacts, form } = kontakData;
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -12,14 +14,13 @@ export default function KontakPublic() {
         "service_2jegxni",      // SERVICE ID
         "template_e0i3gh8",     // TEMPLATE ID
         formRef.current,
-        "dLa3Te8qFDNagZdfp"     // KEY
+        "dLa3Te8qFDNagZdfp"     // PUBLIC KEY
       )
       .then(() => {
         alert("Pesan berhasil dikirim ✅");
         formRef.current.reset();
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
         alert("Gagal mengirim pesan ❌");
       });
   };
@@ -30,42 +31,23 @@ export default function KontakPublic() {
         {/* HEADER */}
         <div className="max-w-3xl mb-20">
           <p className="text-[#39ff14] tracking-widest text-sm mb-3 uppercase">
-            Kontak Gateva
+            {header.subtitle}
           </p>
 
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-            Hubungi Tim Kami <br />
-            <span className="text-[#39ff14]">Kami Siap Membantu</span>
+            {header.title} <br />
+            <span className="text-[#39ff14]">{header.highlight}</span>
           </h1>
 
           <p className="mt-6 text-white/60 text-lg">
-            Punya pertanyaan seputar event, kerja sama, atau ingin berkolaborasi
-            dengan Gateva? Jangan ragu menghubungi kami.
+            {header.description}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* INFO */}
           <div className="space-y-8">
-            {[
-              {
-                title: "Email",
-                value: "gatevaet@gmail.com",
-                link: "mailto:gatevaet@gmail.com",
-                desc: "Respon maksimal 1x24 jam",
-              },
-              {
-                title: "WhatsApp",
-                value: "+62 822-5347-7806",
-                link: "https://wa.me/6282253477806",
-                desc: "Senin – Jumat, 09.00 – 17.00",
-              },
-              {
-                title: "Alamat",
-                value: "Yogyakarta, Indonesia",
-                desc: "Kantor pusat Gateva",
-              },
-            ].map((item, i) => (
+            {contacts.map((item, i) => (
               <div
                 key={i}
                 className="bg-white/5 border border-white/10 rounded-2xl p-6"
@@ -93,7 +75,7 @@ export default function KontakPublic() {
           {/* FORM */}
           <div className="lg:col-span-2">
             <div className="bg-white/5 border border-white/10 rounded-3xl p-10">
-              <h2 className="text-2xl font-bold mb-8">Kirim Pesan</h2>
+              <h2 className="text-2xl font-bold mb-8">{form.title}</h2>
 
               <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
@@ -134,12 +116,12 @@ export default function KontakPublic() {
                   type="submit"
                   className="px-10 py-4 rounded-xl font-semibold text-black bg-[#39ff14] hover:brightness-110 transition"
                 >
-                  Kirim Pesan
+                  {form.button}
                 </button>
               </form>
 
               <p className="text-xs text-white/40 mt-6">
-                * Data kamu aman dan tidak akan dibagikan ke pihak lain.
+                {form.note}
               </p>
             </div>
           </div>

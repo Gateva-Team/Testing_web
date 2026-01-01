@@ -1,0 +1,42 @@
+[
+  {
+    "id": 3,
+    "title": "Jazz Under The Stars",
+    "location": "Yogyakarta",
+    "date": "26 Oktober 2025",
+    "category": "Konser Jazz",
+    "price": "Rp 250.000",
+    "image": "https://images.unsplash.com/photo-1504805572947-34fad45aed93",
+    "description": "Konser jazz outdoor dengan suasana santai di bawah langit malam."
+  },
+  {
+    "id": 4,
+    "title": "Rock Arena Live",
+    "location": "Surabaya",
+    "date": "2 November 2025",
+    "category": "Konser Rock",
+    "price": "Rp 300.000",
+    "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063",
+    "description": "Pertunjukan band rock nasional dengan panggung megah dan energi tinggi."
+  },
+  {
+    "id": 5,
+    "title": "Electronic Wave",
+    "location": "Bali",
+    "date": "9 November 2025",
+    "category": "EDM Festival",
+    "price": "Rp 450.000",
+    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819",
+    "description": "Festival EDM pantai dengan DJ internasional dan visual spektakuler."
+  },
+  {
+    "id": 6,
+    "title": "Acoustic Sunset Session",
+    "location": "Malang",
+    "date": "16 November 2025",
+    "category": "Konser Akustik",
+    "price": "Rp 100.000",
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
+    "description": "Konser akustik sore hari dengan nuansa hangat dan santai."
+  }
+]

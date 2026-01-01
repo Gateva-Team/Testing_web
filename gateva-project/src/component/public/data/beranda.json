@@ -1,0 +1,53 @@
+{
+  "badge": "PLATFORM EVENT TERPERCAYA",
+  "hero": {
+    "title": "Temukan Event Terbaik",
+    "highlight": "Dalam Satu Platform",
+    "description": "Gateva adalah web apps modern untuk menemukan, mengeksplorasi, dan mengikuti berbagai event seperti konser, seminar, lomba, dan workshop dengan pengalaman yang cepat dan intuitif.",
+    "ctaPrimary": {
+      "label": "Jelajahi Event",
+      "link": "/event"
+    },
+    "ctaSecondary": {
+      "label": "Tentang Gateva",
+      "link": "/tentang"
+    }
+  },
+  "infoStack": [
+    {
+      "title": "Event Terverifikasi",
+      "desc": "Setiap event dikurasi untuk menjamin kualitas dan kredibilitas."
+    },
+    {
+      "title": "Beragam Kategori",
+      "desc": "Musik, seminar, lomba, hingga workshop profesional."
+    },
+    {
+      "title": "Akses Mudah",
+      "desc": "Cari, lihat detail, dan daftar event dengan cepat."
+    }
+  ],
+  "values": [
+    {
+      "icon": "🎵",
+      "title": "Event Musik",
+      "desc": "Konser dan festival dengan pengalaman audio visual terbaik."
+    },
+    {
+      "icon": "🎓",
+      "title": "Seminar & Workshop",
+      "desc": "Tingkatkan skill dan wawasan bersama para ahli."
+    },
+    {
+      "icon": "🏆",
+      "title": "Kompetisi & Lomba",
+      "desc": "Tantang diri dan raih prestasi di berbagai bidang."
+    }
+  ],
+  "ctaFinal": {
+    "title": "Siap Menjelajahi Event Favoritmu?",
+    "desc": "Gateva hadir untuk menghubungkan kamu dengan pengalaman, komunitas, dan kesempatan terbaik melalui event pilihan.",
+    "label": "Mulai Sekarang",
+    "link": "/event"
+  }
+}

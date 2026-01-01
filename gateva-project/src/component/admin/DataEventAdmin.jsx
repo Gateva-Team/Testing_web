@@ -1,36 +1,8 @@
 import React, { useState } from "react";
+import initialEvents from "./data/dataEventAdmin.json";
 
 export default function DataEventAdmin() {
-  const [events, setEvents] = useState([
-    {
-      id: 1,
-      name: "Konser Jazz",
-      category: "Musik",
-      date: "2025-12-20",
-      status: "Aktif",
-    },
-    {
-      id: 2,
-      name: "Seminar AI",
-      category: "Seminar",
-      date: "2025-12-22",
-      status: "Aktif",
-    },
-    {
-      id: 3,
-      name: "Workshop UI/UX",
-      category: "Workshop",
-      date: "2025-12-25",
-      status: "Pending",
-    },
-    {
-      id: 4,
-      name: "Lomba Coding",
-      category: "Lomba",
-      date: "2025-12-28",
-      status: "Aktif",
-    },
-  ]);
+  const [events, setEvents] = useState(initialEvents);
 
   const [form, setForm] = useState({
     name: "",

@@ -13,15 +13,15 @@ import TentangPublic from "./component/public/TentangPublic.jsx";
 import KontakPublic from "./component/public/KontakPublic.jsx";
 import Login from "./component/Login.jsx";
 
-// Event Pages
+// Event Category Pages
 import EventMusikPublic from "./pages/EventMusikPublic.jsx";
 import EventSeminarPublic from "./pages/EventSeminarPublic.jsx";
 import EventLombaPublic from "./pages/EventLombaPublic.jsx";
 import EventWorkshopPublic from "./pages/EventWorkshopPublic.jsx";
 import Checkout from "./pages/Checkout.jsx";
 
-// Event Detail
-import EventDetailPublic from "./pages/menu/EventDetailMusik.jsx";
+// Event Detail Pages
+import EventDetailMusik from "./pages/menu/EventDetailMusik.jsx";
 import EventDetailSeminar from "./pages/menu/EventDetailSeminar.jsx";
 import EventDetailWorkshop from "./pages/menu/EventDetailWorkshop.jsx";
 import EventDetailLomba from "./pages/menu/EventDetailLomba.jsx";
@@ -34,10 +34,10 @@ import TransaksiAdmin from "./component/admin/TransaksiAdmin.jsx";
 export default function App() {
   const location = useLocation();
 
-  // 🔐 Role-based login: null | 'user' | 'admin'
+  // role: null | "user" | "admin"
   const [role, setRole] = useState(null);
 
-  // Navbar logic: hide on login page
+  // Hide navbar on login page
   const hideNavbar = location.pathname === "/login";
 
   const renderNavbar = () => {
@@ -49,18 +49,17 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0f0f1a]">
-      {/* Navbar */}
       {renderNavbar()}
 
       <Routes>
-        {/* PUBLIC PAGES */}
+        {/* PUBLIC */}
         <Route path="/" element={<BerandaPublic />} />
         <Route path="/event" element={<EventPublic />} />
         <Route path="/tentang" element={<TentangPublic />} />
         <Route path="/kontak" element={<KontakPublic />} />
 
         {/* LOGIN */}
-        <Route path="/login" element={<Login setIsLoggedIn={setRole} />} />
+        <Route path="/login" element={<Login setRole={setRole} />} />
 
         {/* EVENT CATEGORY */}
         <Route path="/event/musik" element={<EventMusikPublic />} />
@@ -68,36 +67,30 @@ export default function App() {
         <Route path="/event/lomba" element={<EventLombaPublic />} />
         <Route path="/event/workshop" element={<EventWorkshopPublic />} />
 
-        {/* EVENT DETAIL */}
-        <Route path="/event/:id" element={<EventDetailPublic />} />
-        <Route path="/seminar/:id" element={<EventDetailSeminar />} />
-        <Route path="/workshop/:id" element={<EventDetailWorkshop />} />
-        <Route path="/lomba/:id" element={<EventDetailLomba />} />
+        {/* EVENT DETAIL (✅ FIXED) */}
+        <Route path="/event/musik/:id" element={<EventDetailMusik />} />
+        <Route path="/event/seminar/:id" element={<EventDetailSeminar />} />
+        <Route path="/event/lomba/:id" element={<EventDetailLomba />} />
+        <Route path="/event/workshop/:id" element={<EventDetailWorkshop />} />
 
         {/* CHECKOUT */}
         <Route path="/checkout" element={<Checkout />} />
 
-        {/* ADMIN ROUTES */}
+        {/* ADMIN */}
         <Route
           path="/admin/dashboard"
-          element={
-            role === "admin" ? <AdminDashboard /> : <Navigate to="/login" />
-          }
+          element={role === "admin" ? <AdminDashboard /> : <Navigate to="/login" />}
         />
         <Route
           path="/admin/data-event"
-          element={
-            role === "admin" ? <DataEventAdmin /> : <Navigate to="/login" />
-          }
+          element={role === "admin" ? <DataEventAdmin /> : <Navigate to="/login" />}
         />
         <Route
           path="/admin/transaksi"
-          element={
-            role === "admin" ? <TransaksiAdmin /> : <Navigate to="/login" />
-          }
+          element={role === "admin" ? <TransaksiAdmin /> : <Navigate to="/login" />}
         />
 
-        {/* Catch-all: redirect unknown routes to home */}
+        {/* FALLBACK */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>

@@ -1,15 +1,27 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import lombaEvents from "../../data/eventLombaPublic.json";
 
-export default function EventDetailPublic() {
-  const { state } = useLocation();
+export default function EventDetailLomba() {
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const { id } = useParams();
 
-  if (!state) {
+  // 🔎 ambil event dari state ATAU dari JSON
+  const event =
+    state || lombaEvents.find((item) => String(item.id) === id);
+
+  if (!event) {
     return (
-      <div className="min-h-screen flex items-center justify-center text-white">
-        Event tidak ditemukan
-      </div>
+      <section className="min-h-screen bg-black text-white flex flex-col items-center justify-center">
+        <p className="mb-6 text-white/60">Event lomba tidak ditemukan</p>
+        <button
+          onClick={() => navigate("/event/lomba")}
+          className="px-6 py-3 rounded-xl bg-[#39ff14] text-black font-semibold"
+        >
+          Kembali ke Event Lomba
+        </button>
+      </section>
     );
   }
 
@@ -18,8 +30,8 @@ export default function EventDetailPublic() {
       {/* HERO */}
       <div className="relative h-[65vh]">
         <img
-          src={state.image}
-          alt={state.title}
+          src={event.image}
+          alt={event.title}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f1a] via-black/60 to-black/30" />
@@ -27,14 +39,16 @@ export default function EventDetailPublic() {
         <div className="relative z-10 h-full flex items-end">
           <div className="max-w-6xl mx-auto px-6 pb-14">
             <span className="px-4 py-1 rounded-full text-sm bg-[#39ff14]/15 text-[#39ff14]">
-              {state.category}
+              {event.category}
             </span>
+
             <h1 className="text-4xl md:text-6xl font-extrabold mt-4">
-              {state.title}
+              {event.title}
             </h1>
+
             <div className="mt-4 text-white/70 space-y-1">
-              <p>📍 {state.location}</p>
-              <p>📅 {state.date}</p>
+              <p>📍 {event.location}</p>
+              <p>📅 {event.date}</p>
             </div>
           </div>
         </div>
@@ -44,26 +58,25 @@ export default function EventDetailPublic() {
       <div className="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-3 gap-10">
         <div className="lg:col-span-2">
           <h2 className="text-2xl font-bold mb-4">Deskripsi Event</h2>
-          <p className="text-white/70 leading-relaxed">{state.description}</p>
+          <p className="text-white/70 leading-relaxed">
+            {event.description}
+          </p>
         </div>
 
         {/* TICKET */}
         <div className="sticky top-28 h-fit">
-          <div
-            className="bg-white/10 backdrop-blur-xl border border-white/15
-                          rounded-3xl p-8"
-          >
+          <div className="bg-white/10 backdrop-blur-xl border border-white/15 rounded-3xl p-8">
             <h3 className="text-lg font-bold mb-2">Biaya Pendaftaran</h3>
+
             <p className="text-4xl font-extrabold text-[#39ff14] mb-6">
-              {state.price}
+              {event.price}
             </p>
 
             <Link
               to="/checkout"
-              state={state}
+              state={event}
               className="w-full block text-center py-4 rounded-xl font-semibold
-             bg-[#39ff14] text-black
-             hover:brightness-110 transition"
+                         bg-[#39ff14] text-black hover:brightness-110 transition"
             >
               🎟️ Daftar Lomba
             </Link>
