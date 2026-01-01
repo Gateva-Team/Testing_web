@@ -1,41 +1,7 @@
 import React from "react";
+import transaksiData from "./data/transaksiAdmin.json";
 
 export default function TransaksiAdmin() {
-  const transactions = [
-    {
-      id: 1,
-      user: "Dama P.",
-      event: "Konser Jazz",
-      amount: 200000,
-      status: "Selesai",
-      date: "2025-12-20",
-    },
-    {
-      id: 2,
-      user: "Rizky A.",
-      event: "Seminar AI",
-      amount: 150000,
-      status: "Pending",
-      date: "2025-12-21",
-    },
-    {
-      id: 3,
-      user: "Siti N.",
-      event: "Workshop UI/UX",
-      amount: 100000,
-      status: "Selesai",
-      date: "2025-12-22",
-    },
-    {
-      id: 4,
-      user: "Budi K.",
-      event: "Lomba Coding",
-      amount: 50000,
-      status: "Selesai",
-      date: "2025-12-23",
-    },
-  ];
-
   return (
     <div className="p-8 min-h-screen bg-linear-to-br from-[#0a0a12] to-[#1a1a2e] text-white">
       <h1 className="text-3xl font-bold mb-6">Transaksi</h1>
@@ -52,8 +18,9 @@ export default function TransaksiAdmin() {
               <th className="py-2 px-4 text-white/70">Date</th>
             </tr>
           </thead>
+
           <tbody>
-            {transactions.map((tx) => (
+            {transaksiData.map((tx) => (
               <tr
                 key={tx.id}
                 className="border-b border-white/10 hover:bg-white/10 transition"
@@ -61,7 +28,9 @@ export default function TransaksiAdmin() {
                 <td className="py-2 px-4">{tx.id}</td>
                 <td className="py-2 px-4">{tx.user}</td>
                 <td className="py-2 px-4">{tx.event}</td>
-                <td className="py-2 px-4">Rp {tx.amount.toLocaleString()}</td>
+                <td className="py-2 px-4">
+                  Rp {tx.amount.toLocaleString("id-ID")}
+                </td>
                 <td className="py-2 px-4">
                   <span
                     className={`px-2 py-1 rounded-full text-sm font-medium ${

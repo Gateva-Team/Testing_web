@@ -1,0 +1,45 @@
+{
+  "logo": {
+    "src": "/src/assets/Gateva-ver1.png",
+    "alt": "Gateva",
+    "link": "/"
+  },
+  "menu": [
+    {
+      "label": "Beranda",
+      "path": "/"
+    },
+    {
+      "label": "Event",
+      "dropdown": [
+        { "label": "Event Musik", "path": "/event/musik" },
+        { "label": "Event Seminar", "path": "/event/seminar" },
+        { "label": "Event Workshop", "path": "/event/workshop" },
+        { "label": "Event Lomba", "path": "/event/lomba" }
+      ]
+    },
+    {
+      "label": "Tentang",
+      "path": "/tentang"
+    },
+    {
+      "label": "Kontak",
+      "path": "/kontak"
+    }
+  ],
+  "user": {
+    "initial": "U",
+    "name": "User",
+    "menu": [
+      {
+        "label": "Tiket Saya",
+        "path": "/tiket-saya"
+      },
+      {
+        "label": "Logout",
+        "action": "logout",
+        "danger": true
+      }
+    ]
+  }
+}

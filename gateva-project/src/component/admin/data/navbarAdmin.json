@@ -1,0 +1,21 @@
+{
+  "brand": {
+    "name": "Gateva Admin",
+    "logo": "/src/assets/Gateva-ver1.png"
+  },
+  "adminName": "Admin Gateva",
+  "menu": [
+    {
+      "label": "Dashboard",
+      "path": "/admin/dashboard"
+    },
+    {
+      "label": "Data Event",
+      "path": "/admin/data-event"
+    },
+    {
+      "label": "Transaksi",
+      "path": "/admin/transaksi"
+    }
+  ]
+}
