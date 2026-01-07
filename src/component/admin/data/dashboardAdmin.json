@@ -1,0 +1,62 @@
+{
+  "stats": [
+    {
+      "title": "Total Event Aktif",
+      "value": 12,
+      "icon": "Calendar"
+    },
+    {
+      "title": "Total Tiket Terjual",
+      "value": 3480,
+      "icon": "Ticket"
+    },
+    {
+      "title": "Pendapatan Kotor",
+      "value": "Rp 522.500.000",
+      "icon": "Wallet"
+    },
+    {
+      "title": "Rata-rata Harga Dasar",
+      "value": "Rp 150.000",
+      "icon": "Tag"
+    }
+  ],
+
+  "eventPerformance": [
+    {
+      "id": "EVT-001",
+      "name": "Seminar AI Nasional",
+      "category": "Seminar",
+      "hargaDasar": 150000,
+      "tiketTerjual": 820,
+      "pendapatan": 123000000,
+      "status": "Aktif"
+    },
+    {
+      "id": "EVT-002",
+      "name": "Workshop React Advanced",
+      "category": "Workshop",
+      "hargaDasar": 250000,
+      "tiketTerjual": 340,
+      "pendapatan": 85000000,
+      "status": "Aktif"
+    },
+    {
+      "id": "EVT-003",
+      "name": "Lomba Startup Digital",
+      "category": "Lomba",
+      "hargaDasar": 100000,
+      "tiketTerjual": 1200,
+      "pendapatan": 120000000,
+      "status": "Selesai"
+    }
+  ],
+
+  "transaksiBulanan": [
+    { "bulan": "Jan", "total": 42000000 },
+    { "bulan": "Feb", "total": 56000000 },
+    { "bulan": "Mar", "total": 78000000 },
+    { "bulan": "Apr", "total": 91000000 },
+    { "bulan": "Mei", "total": 104000000 }
+  ]
+}

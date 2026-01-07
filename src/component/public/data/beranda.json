@@ -1,0 +1,80 @@
+{
+  "badge": "PLATFORM EVENT TERPERCAYA",
+  "hero": {
+    "spline": "https://prod.spline.design/qZlwvR9RQsndDjFB/scene.splinecode",
+    "ctaPrimary": {
+      "label": "Jelajahi Event",
+      "link": "/event"
+    },
+    "ctaSecondary": {
+      "label": "Tentang Gateva",
+      "link": "/tentang"
+    }
+  },
+  "infoStack": [
+    {
+      "title": "Event Terverifikasi",
+      "desc": "Setiap event dikurasi untuk menjamin kualitas dan kredibilitas."
+    },
+    {
+      "title": "Beragam Kategori",
+      "desc": "Musik, seminar, lomba, hingga workshop profesional."
+    },
+    {
+      "title": "Akses Mudah",
+      "desc": "Cari, lihat detail, dan daftar event dengan cepat."
+    }
+  ],
+  "values": [
+    {
+      "icon": "🎵",
+      "title": "Event Musik",
+      "desc": "Konser dan festival dengan pengalaman audio visual terbaik."
+    },
+    {
+      "icon": "🎓",
+      "title": "Seminar & Workshop",
+      "desc": "Tingkatkan skill dan wawasan bersama para ahli."
+    },
+    {
+      "icon": "🏆",
+      "title": "Kompetisi & Lomba",
+      "desc": "Tantang diri dan raih prestasi di berbagai bidang."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Alice",
+      "comment": "Pengalaman ticketing 3D ini luar biasa dan sangat interaktif!"
+    },
+    {
+      "name": "Budi",
+      "comment": "Sangat mudah dan aman, saya bisa membeli tiket tanpa ribet."
+    },
+    {
+      "name": "Citra",
+      "comment": "Event terlihat hidup dengan visual 3D, recommended!"
+    }
+  ],
+  "partners": ["Gateva", "MusicLive", "ProWorkshop", "CompetitionHub"],
+  "faq": [
+    {
+      "question": "Bagaimana cara membeli tiket?",
+      "answer": "Anda dapat membeli tiket melalui tombol 'Get Ticket' di halaman ini dengan metode pembayaran aman."
+    },
+    {
+      "question": "Apakah pengalaman 3D bisa diakses di mobile?",
+      "answer": "Ya, pengalaman 3D dioptimalkan untuk desktop dan mobile modern dengan interaktivitas penuh."
+    },
+    {
+      "question": "Apakah event diverifikasi?",
+      "answer": "Semua event di platform kami telah melalui proses verifikasi untuk memastikan keamanan pengguna."
+    }
+  ],
+  "ctaFinal": {
+    "title": "Siap Menjelajahi Event Favoritmu?",
+    "desc": "Gateva hadir untuk menghubungkan kamu dengan pengalaman, komunitas, dan kesempatan terbaik melalui event pilihan.",
+    "label": "Mulai Sekarang",
+    "link": "/event"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "Seminar AI Nasional",
+      "category": "Seminar",
+      "status": "Aktif"
+    },
+    {
+      "id": 2,
+      "name": "Workshop React Pro",
+      "category": "Workshop",
+      "status": "Draft"
+    },
+    {
+      "id": 3,
+      "name": "Lomba Startup Digital",
+      "category": "Lomba",
+      "status": "Aktif"
+    }
+  ]
+}

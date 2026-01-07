@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "Hackathon Nasional 2025",
+    "location": "Jakarta",
+    "date": "18 Oktober 2025",
+    "category": "Teknologi",
+    "level": "Mahasiswa & Umum",
+    "price": "Gratis",
+    "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984",
+    "description": "Hackathon nasional untuk inovasi teknologi."
+  },
+  {
+    "id": 2,
+    "title": "UI/UX Design Competition",
+    "location": "Bandung",
+    "date": "25 Oktober 2025",
+    "category": "Teknologi",
+    "level": "Mahasiswa",
+    "price": "Rp50.000",
+    "image": "https://images.unsplash.com/photo-1587440871875-191322ee64b0",
+    "description": "Kompetisi desain UI/UX untuk mahasiswa kreatif."
+  },
+  {
+    "id": 3,
+    "title": "Business Plan Competition",
+    "location": "Surabaya",
+    "date": "2 November 2025",
+    "category": "Bisnis",
+    "level": "Mahasiswa",
+    "price": "Rp75.000",
+    "image": "https://images.unsplash.com/photo-1556761175-4b46a572b786",
+    "description": "Lomba penyusunan rencana bisnis inovatif dan berkelanjutan."
+  },
+  {
+    "id": 4,
+    "title": "Lomba Inovasi Smart City",
+    "location": "Yogyakarta",
+    "date": "10 November 2025",
+    "category": "Teknologi",
+    "level": "Mahasiswa & Umum",
+    "price": "Gratis",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+    "description": "Ajang inovasi solusi cerdas untuk pengembangan kota."
+  }
+]

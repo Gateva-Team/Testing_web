@@ -1,0 +1,66 @@
+[
+  {
+    "id": 3,
+    "title": "Jazz Under The Stars",
+    "location": "Yogyakarta",
+    "date": "26 Oktober 2025",
+    "category": "Konser Jazz",
+    "price": "Rp 250.000",
+    "image": "https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=1600&q=80",
+    "video": "https://videos.pexels.com/video-files/3195394/3195394-hd_1920_1080_25fps.mp4",
+    "description": "Konser jazz outdoor dengan suasana santai di bawah langit malam.",
+    "highlights": [
+      { "time": 4, "text": "Smooth Jazz Opening" },
+      { "time": 9, "text": "Saxophone Solo Moment" },
+      { "time": 14, "text": "Relaxed Night Crowd" }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Rock Arena Live",
+    "location": "Surabaya",
+    "date": "2 November 2025",
+    "category": "Konser Rock",
+    "price": "Rp 300.000",
+    "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1600&q=80",
+    "video": "https://videos.pexels.com/video-files/1109966/1109966-hd_1920_1080_30fps.mp4",
+    "description": "Pertunjukan band rock nasional dengan panggung megah dan energi tinggi.",
+    "highlights": [
+      { "time": 3, "text": "Distortion Guitar Intro" },
+      { "time": 8, "text": "High Energy Crowd Jump" },
+      { "time": 13, "text": "Final Chorus Explosion" }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Electronic Wave",
+    "location": "Bali",
+    "date": "9 November 2025",
+    "category": "EDM Festival",
+    "price": "Rp 450.000",
+    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1600&q=80",
+    "video": "https://videos.pexels.com/video-files/855393/855393-hd_1920_1080_30fps.mp4",
+    "description": "Festival EDM pantai dengan DJ internasional dan visual spektakuler.",
+    "highlights": [
+      { "time": 5, "text": "Sunset Drop Moment" },
+      { "time": 11, "text": "Laser & LED Burst" },
+      { "time": 18, "text": "Hands Up EDM Crowd" }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Acoustic Sunset Session",
+    "location": "Malang",
+    "date": "16 November 2025",
+    "category": "Konser Akustik",
+    "price": "Rp 100.000",
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=80",
+    "video": "https://videos.pexels.com/video-files/856982/856982-hd_1920_1080_30fps.mp4",
+    "description": "Konser akustik sore hari dengan nuansa hangat dan santai.",
+    "highlights": [
+      { "time": 4, "text": "Soft Guitar Intro" },
+      { "time": 9, "text": "Golden Hour Vocal" },
+      { "time": 14, "text": "Intimate Acoustic Crowd" }
+    ]
+  }
+]

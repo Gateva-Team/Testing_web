@@ -1,0 +1,33 @@
+{
+  "summary": [
+    { "label": "Total Transaksi", "value": "1.284" },
+    { "label": "Pendapatan", "value": "Rp 248.500.000" },
+    { "label": "Pending", "value": "42" }
+  ],
+  "transaksi": [
+    {
+      "id": "TRX-001",
+      "user": "Andi Pratama",
+      "event": "Gateva Music Fest",
+      "total": "Rp 450.000",
+      "status": "Success",
+      "date": "12 Jan 2026"
+    },
+    {
+      "id": "TRX-002",
+      "user": "Sinta Ayu",
+      "event": "UI/UX Workshop",
+      "total": "Rp 250.000",
+      "status": "Pending",
+      "date": "13 Jan 2026"
+    },
+    {
+      "id": "TRX-003",
+      "user": "Bima Saputra",
+      "event": "Startup Seminar",
+      "total": "Rp 150.000",
+      "status": "Failed",
+      "date": "14 Jan 2026"
+    }
+  ]
+}

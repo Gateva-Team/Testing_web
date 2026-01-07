@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Future Tech Conference 2025",
+    "location": "Jakarta",
+    "date": "15 Oktober 2025",
+    "category": "Teknologi",
+    "price": "Rp 450.000",
+    "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87",
+    "description": "Konferensi teknologi masa depan bersama pembicara internasional."
+  },
+  {
+    "id": 2,
+    "title": "Digital Innovation Seminar",
+    "location": "Surabaya",
+    "date": "22 Oktober 2025",
+    "category": "Seminar",
+    "price": "Rp 300.000",
+    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+    "description": "Seminar inovasi digital yang membahas AI, startup, dan transformasi bisnis."
+  },
+  {
+    "id": 3,
+    "title": "Startup & Entrepreneurship Seminar",
+    "location": "Yogyakarta",
+    "date": "28 Oktober 2025",
+    "category": "Seminar",
+    "price": "Rp 250.000",
+    "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df",
+    "description": "Seminar kewirausahaan untuk calon founder dan pelaku startup muda."
+  },
+  {
+    "id": 4,
+    "title": "Cyber Security Awareness Seminar",
+    "location": "Bandung",
+    "date": "5 November 2025",
+    "category": "Seminar",
+    "price": "Rp 200.000",
+    "image": "https://images.unsplash.com/photo-1510511459019-5dda7724fd87",
+    "description": "Seminar edukatif mengenai keamanan data dan ancaman siber di era digital."
+  }
+]
