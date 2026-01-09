@@ -1,10 +1,18 @@
+import { useLocation, Navigate } from "react-router-dom";
 import EventDetailBase from "@/component/EventDetailBase";
-import seminarEvents from "../../data/eventSeminarPublic.json";
 
 export default function EventDetailSeminar() {
+  const { state } = useLocation();
+
+  // kalau user akses langsung via URL tanpa state
+  if (!state) {
+    return <Navigate to="/event/seminar" replace />;
+  }
+
+
   return (
     <EventDetailBase
-      events={seminarEvents}
+      events={[state]} 
       backLink="/event/seminar"
       categoryKey="seminar"
       ctaLabel="Daftar Seminar"

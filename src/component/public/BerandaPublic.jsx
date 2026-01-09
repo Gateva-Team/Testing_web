@@ -115,7 +115,8 @@ export default function BerandaPublic() {
 
             <div className="flex items-center gap-12">
               <Link
-                to="/event"
+//konektin biar logic sesuai (wibson)
+                to="/beranda-user"
                 className="px-12 py-4 rounded-full bg-[#39ff14] text-black font-semibold tracking-wide hover:scale-105 transition"
               >
                 Temukan Event
@@ -277,7 +278,9 @@ export default function BerandaPublic() {
 
           <div className="mt-16 flex justify-center">
             <Link
-              to="/event"
+            
+//konektin biar logic sesuai (wibson)
+              to="/beranda-user"
               className="px-16 py-5 rounded-full bg-[#39ff14] text-black font-semibold tracking-wide hover:scale-105 transition"
             >
               Jelajahi Tiket Sekarang

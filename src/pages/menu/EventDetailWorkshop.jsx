@@ -1,10 +1,17 @@
+import { useLocation, Navigate } from "react-router-dom";
 import EventDetailBase from "@/component/EventDetailBase";
-import workshopEvents from "../../data/eventWorkshopPublic.json";
 
 export default function EventDetailWorkshop() {
+  const { state } = useLocation();
+
+  // kalau user akses langsung via URL tanpa state
+  if (!state) {
+    return <Navigate to="/event/workshop" replace />;
+  }
+
   return (
     <EventDetailBase
-      events={workshopEvents}
+      events={[state]}
       backLink="/event/workshop"
       categoryKey="workshop"
       ctaLabel="Daftar Workshop"

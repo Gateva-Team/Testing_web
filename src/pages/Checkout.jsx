@@ -9,7 +9,6 @@ import { ArrowLeft, MessageCircle } from "lucide-react";
 export default function CheckoutPublic() {
   const { state } = useLocation();
   const navigate = useNavigate();
-
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -38,11 +37,10 @@ export default function CheckoutPublic() {
   };
 
   /* ================= CHECKOUT ================= */
-  const handleCheckout = () => {
-    if (!name || !phone) return;
+const handleCheckout = () => {
+  if (!name || !phone) return;
 
-    const message = `
-Halo Gateva 👋
+  const message = `Halo Gateva 👋
 Saya ingin membeli tiket event:
 
 🎫 Event : ${state.title}
@@ -56,14 +54,11 @@ Saya ingin membeli tiket event:
 - Total : ${rupiah(total)}
 
 👤 Nama : ${name}
-📱 WhatsApp : ${phone}
-    `;
+📱 WhatsApp : ${phone}`;
 
-    window.open(
-      `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
-  };
+  const url = `https://wa.me/6289629168442?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+};
 
   return (
     <section className="min-h-screen pt-24 pb-32 bg-gradient-to-b from-[#05080f] via-[#070d18] to-[#05080f] text-white">

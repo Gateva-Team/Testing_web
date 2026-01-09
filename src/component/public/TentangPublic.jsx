@@ -200,7 +200,7 @@ export default function TentangPublic() {
                      bg-[#39ff14] text-black
                      hover:scale-105 transition"
         >
-          <Link to="/event">Lihat Semua Event</Link>
+          <Link to="/beranda-user"> Lihat Semua Event</Link>
         </Button>
       </div>
     </section>

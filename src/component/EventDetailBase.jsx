@@ -13,7 +13,7 @@ export default function EventDetailBase({
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const event = events.find((e) => String(e.id) === id);
+  const event = events.find((e) => String(e.id).trim() === String(id).trim());
 
   if (!event) {
     return (
@@ -112,19 +112,26 @@ export default function EventDetailBase({
               </div>
 
               {/* CTA */}
-              <Button
-                onClick={() => navigate("/checkout", { state: event })}
-                className="
-                  w-full py-6 text-lg font-semibold rounded-xl
-                  bg-[#7CFF4D]
-                  text-black
-                  hover:brightness-110
-                  transition
-                "
-              >
-                <Ticket className="mr-2" />
-                {ctaLabel}
-              </Button>
+                <Button
+                  onClick={() =>
+                    navigate("/checkout", {
+                      state: {
+                        id: event.id,
+                        title: event.title,
+                        location: event.location,
+                        date: event.date,
+                        category: event.category,
+                        price: event.price,
+                        image: event.image,
+                      },
+                    })
+                  }
+                  className="w-full py-6 text-lg font-semibold rounded-xl bg-[#7CFF4D] text-black"
+                >
+                  <Ticket className="mr-2" />
+                  {ctaLabel}
+                </Button>
+
 
               <p className="text-xs text-white/40 text-center">
                 * Tiket tidak dapat dikembalikan

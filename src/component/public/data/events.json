@@ -86,6 +86,99 @@
       "price": "Rp150.000",
       "tickets": 180,
       "image": "https://images.pexels.com/photos/3184637/pexels-photo-3184637.jpeg"
-    }
+    },
+      {
+    "title": "Lomba Inovasi Smart City",
+    "category": "Lomba",
+    "location": "Yogyakarta",
+    "date": "10 November 2025",
+    "level": "Mahasiswa & Umum",
+    "price": "Gratis",
+    "tickets": 100,
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+    "description": "Ajang inovasi solusi cerdas untuk pengembangan kota."
+  },
+  {
+    "title": "Jazz Under The Stars",
+    "location": "Yogyakarta",
+    "date": "26 Oktober 2025",
+    "category": "Musik",
+    "price": "Rp 250.000",
+    "tickets": 90,
+    "image": "https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=1600&q=80",
+    "description": "Konser jazz malam hari dengan suasana romantis di bawah bintang."
+  },
+    {
+    "title": "Startup & Entrepreneurship Seminar",
+    "location": "Yogyakarta",
+    "date": "28 Oktober 2025",
+    "category": "Seminar",
+    "price": "Rp 250.000",
+    "tickets": 120,
+    "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df",
+    "description": "Seminar kewirausahaan untuk calon founder dan pelaku startup muda."
+  },
+  {
+    "title": "Rock Arena Live",
+    "location": "Surabaya",
+    "date": "2 November 2025",
+    "category": "Musik",
+    "price": "Rp 300.000",
+    "tickets": 130,
+    "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1600&q=80",
+    "description": "Pertunjukan band rock nasional dengan panggung megah dan energi tinggi."
+  },
+    {
+    "title": "Future Tech Conference 2025",
+    "location": "Jakarta",
+    "date": "15 Oktober 2025",
+    "category": "Teknologi",
+    "price": "Rp 450.000",
+    "tickets": 300,
+    "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87",
+    "description": "Konferensi teknologi masa depan bersama pembicara internasional."
+  },
+  {
+    "title": "Digital Innovation Seminar",
+    "location": "Surabaya",
+    "date": "22 Oktober 2025",
+    "category": "Seminar",
+    "price": "Rp 300.000",
+    "tickets": 200,
+    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+    "description": "Seminar inovasi digital yang membahas AI, startup, dan transformasi bisnis."
+  },
+  {
+    "title": "Electronic Wave",
+    "location": "Bali",
+    "date": "9 November 2025",
+    "category": "Musik",
+    "price": "Rp 450.000",
+    "tickets": 10000,
+    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1600&q=80",
+    "description": "Festival EDM pantai dengan DJ internasional dan visual spektakuler."
+  },
+  {
+    "title": "Acoustic Sunset Session",
+    "location": "Malang",
+    "date": "16 November 2025",
+    "category": "Musik",
+    "price": "Rp 100.000",
+    "tickets": 200,
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=80",
+    "description": "Konser akustik sore hari dengan nuansa hangat dan santai."
+  },
+  {
+    "title": "Cyber Security Awareness Seminar",
+    "location": "Bandung",
+    "date": "5 November 2025",
+    "category": "Seminar",
+    "price": "Rp 200.000",
+    "tickets": 150,
+    "image": "https://images.unsplash.com/photo-1510511459019-5dda7724fd87",
+    "description": "Seminar edukatif mengenai keamanan data dan ancaman siber di era digital."
+  }
+
+
   ]
 }

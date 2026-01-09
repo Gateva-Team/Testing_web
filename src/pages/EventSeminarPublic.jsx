@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import events from "../data/eventSeminarPublic.json";
 
 export default function EventSeminarPublic() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Ganti URL ini dengan URL MockAPI Anda yang asli
+    const apiUrl = "https://694d8c8ead0f8c8e6e20ef39.mockapi.io/events"; 
+
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        // FILTER: Hanya ambil data yang kategorinya 'seminar'
+        const seminarOnly = data.filter((item) => item.category === "Seminar");
+        setEvents(seminarOnly);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Gagal mengambil data:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div className="text-white text-center py-20">Loading...</div>;
+
   return (
     <section className="min-h-screen bg-black text-white px-6 py-20">
       <div className="max-w-6xl mx-auto">

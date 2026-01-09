@@ -108,7 +108,7 @@ export default function KontakPublic() {
             <div className="space-y-3 text-sm text-white/70">
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#39ff14]" />
-                support@gateva.id
+                gatevaet@gmail.com
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#39ff14]" />

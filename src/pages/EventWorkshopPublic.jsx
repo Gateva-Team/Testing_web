@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import workshops from "../data/eventWorkshopPublic.json";
 
 export default function EventWorkshopPublic() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Ganti URL ini dengan URL MockAPI Anda yang asli
+    const apiUrl = "https://694d8c8ead0f8c8e6e20ef39.mockapi.io/events"; 
+
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        // FILTER: Hanya ambil data yang kategorinya 'workshop'
+        const workshopOnly = data.filter((item) => item.category === "Workshop");
+        setEvents(workshopOnly);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Gagal mengambil data:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div className="text-white text-center py-20">Loading...</div>;
+
   return (
     <section className="min-h-screen bg-black text-white px-6 py-20">
       <div className="max-w-6xl mx-auto">
@@ -11,24 +33,24 @@ export default function EventWorkshopPublic() {
         </h1>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {workshops.map((item) => (
+          {events.map((event) => (
             <div
-              key={item.id}
+              key={event.id}
               className="bg-white/5 border border-white/10
                          rounded-2xl p-6 hover:border-[#39ff14]/50
                          transition"
             >
               <h3 className="text-2xl font-bold mb-2">
-                {item.title}
+                {event.title}
               </h3>
 
               <p className="text-white/60 mb-4">
-                📅 {item.date}
+                📅 {event.date}
               </p>
 
               <Link
-                to={`/event/workshop/${item.id}`}
-                state={item}
+                to={`/event/workshop/${event.id}`}
+                state={event}
                 className="inline-flex items-center gap-2
                            text-[#39ff14] font-semibold
                            hover:underline"

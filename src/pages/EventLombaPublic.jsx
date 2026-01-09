@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import events from "../data/eventLombaPublic.json";
 
 export default function EventLombaPublic() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Ganti URL ini dengan URL MockAPI Anda yang asli
+    const apiUrl = "https://694d8c8ead0f8c8e6e20ef39.mockapi.io/events"; 
+
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        // FILTER: Hanya ambil data yang kategorinya 'lomba'
+        const lombaOnly = data.filter((item) => item.category === "Lomba");
+        setEvents(lombaOnly);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Gagal mengambil data:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div className="text-white text-center py-20">Loading...</div>;
+
   return (
     <section className="min-h-screen bg-black text-white px-6 py-20">
       <div className="max-w-6xl mx-auto">
@@ -11,30 +33,25 @@ export default function EventLombaPublic() {
         </h1>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {events.map((event) => (
-            <div
-              key={event.id}
-              className="bg-white/5 border border-white/10
-                         rounded-2xl p-6 hover:border-[#39ff14]/50
-                         transition"
-            >
-              <h3 className="text-2xl font-bold mb-2">{event.title}</h3>
-
-              <p className="text-white/60 mb-4">
-                Level: <span className="text-white">{event.level}</span>
-              </p>
-
-              <Link
-                to={`/event/lomba/${event.id}`}
-                state={event}
-                className="inline-flex items-center gap-2
-                           text-[#39ff14] font-semibold
-                           hover:underline"
-              >
-                Lihat Detail →
-              </Link>
-            </div>
-          ))}
+          {events.length > 0 ? (
+            events.map((event) => (
+              <div key={event.id} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#39ff14]/50 transition">
+                <h3 className="text-2xl font-bold mb-2">{event.title}</h3>
+                <p className="text-white/60 mb-4">
+                  Level: <span className="text-white">{event.level}</span>
+                </p>
+                <Link
+                  to={`/event/lomba/${event.id}`}
+                  state={event} // Mengirim data event ke halaman detail
+                  className="inline-flex items-center gap-2 text-[#39ff14] font-semibold hover:underline"
+                >
+                  Lihat Detail →
+                </Link>
+              </div>
+            ))
+          ) : (
+            <p>Tidak ada event lomba saat ini.</p>
+          )}
         </div>
       </div>
     </section>
