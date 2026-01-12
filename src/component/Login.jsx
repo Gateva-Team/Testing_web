@@ -54,7 +54,7 @@ export default function Login({ setRole }) {
       if (res.role === "admin") {
         navigate("/admin/dashboard");
       } else if (res.role === "user") {
-        navigate("/beranda-user"); // <-- beranda user
+        navigate("/beranda-user"); // beranda user
       }
     } catch (err) {
       toast.error(err.message);
@@ -167,7 +167,7 @@ export default function Login({ setRole }) {
             {/* FOOTER */}
             <div className="mt-8 text-center">
               <Link
-                to="/"
+                to="/home"
                 className="inline-flex items-center gap-2 text-sm text-white/55 hover:text-[#39ff14] transition"
               >
                 <ArrowLeft size={15} />
