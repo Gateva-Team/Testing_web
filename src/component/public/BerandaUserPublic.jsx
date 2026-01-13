@@ -71,16 +71,27 @@ export default function BerandaUser() {
       .then((res) => res.json())
       .then((data) => {
         const validData = data.filter(e => e.title && !e.title.includes("title"));
-        const normalized = validData.map((e) => ({
-          ...e,
-          id: e.id,
-          title: e.title || "Event Tanpa Nama",
-          category: e.category || "Lainnya",
-          location: e.location || "Lokasi TBD",
-          price: isNaN(e.price) ? e.price : `Rp ${Number(e.price).toLocaleString('id-ID')}`,
-          image: e.image || "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800",
-          badge: new Date(e.date) <= new Date() ? "Sedang Berlangsung" : "Upcoming",
-        }));
+        const now = new Date();
+
+        const normalized = validData.map((e) => {
+          const eventDate = new Date(e.date);
+          return {
+            ...e,
+            id: e.id,
+            title: e.title || "Event Tanpa Nama",
+            category: e.category || "Lainnya",
+            location: e.location || "Lokasi TBD",
+            price: isNaN(e.price) ? e.price : `Rp ${Number(e.price).toLocaleString('id-ID')}`,
+            image: e.image || "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800",
+            // Penentuan badge berdasarkan perbandingan tanggal asli
+            badge: eventDate <= now ? "Sedang Berlangsung" : "Coming Soon",
+            rawDate: eventDate // Simpan objek Date untuk pengurutan
+          };
+        });
+
+        // SORTIR: Mengurutkan dari tanggal terdekat ke terjauh
+        normalized.sort((a, b) => a.rawDate - b.rawDate);
+
         setEvents(normalized);
         setFilteredEvents(normalized);
       });
@@ -168,7 +179,11 @@ export default function BerandaUser() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredEvents.length > 0 ? (
-            (selectedCategory === "Semua" ? filteredEvents.slice(0, 10) : filteredEvents).map((event) => (
+            // Hanya menampilkan yang "Sedang Berlangsung"
+            filteredEvents
+              .filter(e => e.badge === "Sedang Berlangsung")
+              .slice(0, 10)
+              .map((event) => (
               <motion.div key={event.id} whileHover={{ y: -10 }} onClick={() => handleOpenModal(event)} className="group cursor-pointer">
                 <Card className="bg-[#111] border-white/10 overflow-hidden h-full flex flex-col">
                   <div className="relative h-48 overflow-hidden">
@@ -201,7 +216,11 @@ export default function BerandaUser() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredEvents.length > 0 ? (
-            (selectedCategory === "Semua" ? filteredEvents.slice(0, 4) : filteredEvents).map((event) => (
+            // Hanya menampilkan yang "Coming Soon"
+            filteredEvents
+              .filter(e => e.badge === "Coming Soon")
+              .slice(0, 8)
+              .map((event) => (
               <motion.div key={event.id} whileHover={{ y: -10 }} onClick={() => handleOpenModal(event)} className="group cursor-pointer">
                 <Card className="bg-[#111] border-white/10 overflow-hidden h-full flex flex-col">
                   <div className="relative h-48 overflow-hidden">
@@ -227,6 +246,7 @@ export default function BerandaUser() {
         </div>
       </main>
 
+      {/* Bagian FAQ dan Footer */}
       <section className="max-w-4xl mx-auto px-6 py-20 border-t border-white/5">
         <h2 className="text-3xl font-bold mb-10">FAQ</h2>
         <div className="space-y-2">
