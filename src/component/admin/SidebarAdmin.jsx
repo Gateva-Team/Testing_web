@@ -38,22 +38,46 @@ const menus = [
   },
 ];
 
-// Dummy counter (bisa diganti dari API / JSON)
-const counters = {
-  event: 12,
-  transaksi: 248,
-};
-
 export default function SidebarAdmin() {
   const navigate = useNavigate();
   const location = useLocation();
+  
+  // State untuk menyimpan jumlah data dari API
+  const [counters, setCounters] = useState({
+    event: 0,
+    transaksi: 0,
+  });
+
   const [usage, setUsage] = useState(() => {
     return JSON.parse(localStorage.getItem("menu-usage") || "{}");
   });
 
-  /* =====================
-     SMART TRACKING
-  ===================== */
+  // Api real-time untuk counter 
+  useEffect(() => {
+    const fetchCounters = async () => {
+      try {
+        // Data Event
+        const resEvents = await fetch("https://694d8c8ead0f8c8e6e20ef39.mockapi.io/events");
+        const dataEvents = await resEvents.json();
+        
+        // Data Transaksi
+        const resTrx = await fetch("https://694d8c8ead0f8c8e6e20ef39.mockapi.io/transactions");
+        const dataTrx = await resTrx.json();
+
+        setCounters({
+          event: dataEvents.length,
+          transaksi: dataTrx.length,
+        });
+      } catch (error) {
+        console.error("Gagal mengambil data counter sidebar:", error);
+      }
+    };
+
+    fetchCounters();
+  }, [location.pathname]); // Update counter setiap kali pindah halaman
+
+
+  // Menu Usage Tracking
   useEffect(() => {
     setUsage((prev) => {
       const updated = {
@@ -86,7 +110,7 @@ export default function SidebarAdmin() {
       </div>
 
       {/* ===== MENU ===== */}
-      <nav className="flex-1 px-4 py-6 space-y-8">
+      <nav className="flex-1 px-4 py-6 space-y-8 overflow-y-auto custom-scrollbar">
         {menus.map((group, idx) => (
           <div key={idx}>
             <p className="mb-3 px-3 text-[11px] tracking-widest text-white/40">
@@ -107,10 +131,10 @@ export default function SidebarAdmin() {
                       relative flex items-center justify-between
                       px-4 py-3 rounded-lg
                       text-sm font-medium
-                      transition-colors duration-150
+                      transition-all duration-200
                       ${
                         isActive
-                          ? "bg-emerald-500/10 text-emerald-400"
+                          ? "bg-emerald-500/10 text-emerald-400 shadow-[inset_0_0_10px_rgba(52,211,153,0.05)]"
                           : "text-white/70 hover:text-white hover:bg-white/5"
                       }
                     `
@@ -122,15 +146,15 @@ export default function SidebarAdmin() {
 
                       {/* SMART HIGHLIGHT */}
                       {isMostUsed && (
-                        <span className="ml-2 text-[10px] px-2 py-0.5 rounded-full bg-emerald-400/15 text-emerald-400">
+                        <span className="ml-2 text-[10px] px-2 py-0.5 rounded-full bg-emerald-400/15 text-emerald-400 animate-pulse">
                           HOT
                         </span>
                       )}
                     </div>
 
-                    {/* BADGE COUNTER */}
+                    {/* BADGE COUNTER (Real-time dari State) */}
                     {item.key && (
-                      <span className="text-[11px] px-2 py-0.5 rounded-full bg-white/5 text-white/60">
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/60 border border-white/10">
                         {counters[item.key]}
                       </span>
                     )}
@@ -145,19 +169,19 @@ export default function SidebarAdmin() {
       {/* ===== USER ===== */}
       <div className="px-6 py-5 border-t border-white/5 space-y-4">
         <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-full bg-emerald-500/15 flex items-center justify-center text-emerald-400">
+          <div className="h-9 w-9 rounded-full bg-emerald-500/15 flex items-center justify-center text-emerald-400 border border-emerald-500/20">
             <User size={16} />
           </div>
 
-          <div>
-            <p className="text-sm text-white font-medium">Admin Gateva</p>
-            <p className="text-xs text-white/50">System Administrator</p>
+          <div className="overflow-hidden">
+            <p className="text-sm text-white font-medium truncate">Admin Gateva</p>
+            <p className="text-[10px] text-white/40 uppercase tracking-tighter">System Administrator</p>
           </div>
         </div>
 
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-red-400 hover:bg-red-500/10 transition-colors"
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-red-400/80 hover:text-red-400 hover:bg-red-500/10 transition-all border border-transparent hover:border-red-500/20"
         >
           <LogOut size={16} />
           Logout

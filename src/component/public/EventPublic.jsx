@@ -161,7 +161,7 @@ export default function EventPublic() {
               key={i}
               className="bg-white/5 border border-white/10 rounded-3xl hover:border-[#39ff14]/40 transition"
             >
-              {/* ⚠️ PENTING: PAKSA WARNA TEXT */}
+              {/* PAKSA WARNA TEXT */}
               <CardContent className="p-6 flex flex-col h-full text-white">
                 <div className="flex gap-2 mb-4">
                   <Badge className="bg-[#39ff14]/20 text-[#39ff14] border-none">

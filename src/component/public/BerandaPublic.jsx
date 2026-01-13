@@ -4,7 +4,7 @@ import Spline from "@splinetool/react-spline";
 import { motion, useScroll, useTransform } from "framer-motion";
 import berandaData from "./data/beranda.json";
 
-/* ================= AI NLP TYPING ================= */
+// Komponen Teks Pencarian AI dengan Efek Mengetik
 function AISearchingText() {
   const phrases = [
     "menganalisis tiket event yang akan datang",
@@ -115,7 +115,7 @@ export default function BerandaPublic() {
 
             <div className="flex items-center gap-12">
               <Link
-//konektin biar logic sesuai (wibson)
+            //Konektin biar logic sesuai (wibson)
                 to="/beranda-user"
                 className="px-12 py-4 rounded-full bg-[#39ff14] text-black font-semibold tracking-wide hover:scale-105 transition"
               >
@@ -279,7 +279,7 @@ export default function BerandaPublic() {
           <div className="mt-16 flex justify-center">
             <Link
             
-//konektin biar logic sesuai (wibson)
+          //Konektin biar logic sesuai (wibson)
               to="/beranda-user"
               className="px-16 py-5 rounded-full bg-[#39ff14] text-black font-semibold tracking-wide hover:scale-105 transition"
             >
